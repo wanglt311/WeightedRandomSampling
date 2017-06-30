@@ -12,9 +12,9 @@ public class Main {
     public static Map<String, Integer> categoryMap = new HashMap<String, Integer>();
 
     public static void main(String[] args) {
-        WeightCategory weightCategory1 = new WeightCategory("dog", 60);
-        WeightCategory weightCategory2 = new WeightCategory("cat", 20);
-        WeightCategory weightCategory3 = new WeightCategory("bird", 20);
+        WeightCategory weightCategory1 = new WeightCategory("red", 60);
+        WeightCategory weightCategory2 = new WeightCategory("blue", 20);
+        WeightCategory weightCategory3 = new WeightCategory("yellow", 20);
         List<WeightCategory> weightCategories = new ArrayList<WeightCategory>();
         weightCategories.add(weightCategory1);
         weightCategories.add(weightCategory2);
@@ -35,7 +35,7 @@ public class Main {
             return;
         }
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             System.out.println("This is the " + i + "th round");
             int n = random.nextInt(weightSum);
             int m = 0;
