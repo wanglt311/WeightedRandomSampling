@@ -3,13 +3,7 @@ package com.company.webcrawer;
 import java.util.*;
 
 public class Main {
-    //public static List<WeightCategory>  weightCategoryList = new ArrayList<WeightCategory>();
     private static Random random = new Random();
-
-//    public static void initData(List<WeightCategory> weightCategorys) {
-//        weightCategoryList = weightCategorys;
-//    }
-    //public static Map<String, Integer> categoryMap = new HashMap<String, Integer>();
 
     public static Map<String, Integer> weightedRandomSampling(List<WeightCategory> weightCategories) {
         Map<String, Integer> categoryMap = new HashMap<String, Integer>();
