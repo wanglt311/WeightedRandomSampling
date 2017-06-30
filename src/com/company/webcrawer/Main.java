@@ -9,21 +9,13 @@ public class Main {
 //    public static void initData(List<WeightCategory> weightCategorys) {
 //        weightCategoryList = weightCategorys;
 //    }
-    public static Map<String, Integer> categoryMap = new HashMap<String, Integer>();
+    //public static Map<String, Integer> categoryMap = new HashMap<String, Integer>();
 
-    public static void main(String[] args) {
-        WeightCategory weightCategory1 = new WeightCategory("red", 60);
-        WeightCategory weightCategory2 = new WeightCategory("blue", 20);
-        WeightCategory weightCategory3 = new WeightCategory("yellow", 20);
-        List<WeightCategory> weightCategories = new ArrayList<WeightCategory>();
-        weightCategories.add(weightCategory1);
-        weightCategories.add(weightCategory2);
-        weightCategories.add(weightCategory3);
-
-        //initData(weightCategories);
-        categoryMap.put(weightCategory1.getCategory(), 0);
-        categoryMap.put(weightCategory2.getCategory(), 0);
-        categoryMap.put(weightCategory3.getCategory(), 0);
+    public static Map<String, Integer> weightedRandomSampling(List<WeightCategory> weightCategories) {
+        Map<String, Integer> categoryMap = new HashMap<String, Integer>();
+        for (WeightCategory weightCategory : weightCategories) {
+            categoryMap.put(weightCategory.getCategory(), 0);
+        }
 
         int weightSum = 0;
         for (WeightCategory weightCategory : weightCategories) {
@@ -32,7 +24,7 @@ public class Main {
 
         if (weightSum <= 0) {
             System.err.println("Error: weightSum = " + weightSum);
-            return;
+            return null;
         }
 
         for (int i = 0; i < 10000; i++) {
@@ -50,7 +42,22 @@ public class Main {
             }
         }
 
-        System.out.println(categoryMap.toString());
+        return categoryMap;
+        //System.out.println(categoryMap.toString());
+
+    }
+
+    public static void main(String[] args) {
+        WeightCategory weightCategory1 = new WeightCategory("red", 60);
+        WeightCategory weightCategory2 = new WeightCategory("blue", 20);
+        WeightCategory weightCategory3 = new WeightCategory("yellow", 20);
+        List<WeightCategory> weightCategories = new ArrayList<WeightCategory>();
+        weightCategories.add(weightCategory1);
+        weightCategories.add(weightCategory2);
+        weightCategories.add(weightCategory3);
+
+        System.out.println(weightedRandomSampling(weightCategories).toString());
+
 
     }
 }
